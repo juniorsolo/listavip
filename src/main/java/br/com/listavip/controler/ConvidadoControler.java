@@ -4,11 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ConvidadoControler {
+public class ConvidadoControler  {
 	
+	@RequestMapping("listaconvidados")
+	public String listaConvidados() {
+		return "listaconvidados";
+	}
 	@RequestMapping("/")
-	String index() {
+	public String index() {
 		return "index";
 	}
+	
+
 	
 }

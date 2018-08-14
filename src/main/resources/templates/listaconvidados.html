@@ -15,11 +15,14 @@
 					<tr>
 						<th>Nome</th>
 						<th>Email</th>
-						<th>Nome</th>
+						<th>Telefone</th>
 					</tr>
 				</thead>
-	
-
+				<tr th:each="convidado : ${convidados}">
+					<td><span th:text="${convidado.nome}"></span></td>
+					<td><span th:text="${convidado.email}"></span></td>
+					<td><span th:text="${convidado.telefone}"></span></td>
+				</tr>
 			</table>
 		</div>
 

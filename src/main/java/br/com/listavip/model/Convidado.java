@@ -2,18 +2,32 @@ package br.com.listavip.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name="convidado")
 public class Convidado {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String email;	
 	private String telefone;
 	
+	
+	public Convidado() {
+	}
+		
+	public Convidado(String nome, String email, String telefone) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+	}
+
+	
+	//Getters and Setters
 	
 	public Integer getId() {
 		return id;

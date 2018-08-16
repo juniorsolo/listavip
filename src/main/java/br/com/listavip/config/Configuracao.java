@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @SpringBootApplication
-@ComponentScan(basePackages= {"br.com.listavip.controler"})
+@ComponentScan(basePackages= {"br.com.listavip.controler","br.com.listavip.service"})
 @EntityScan("br.com.listavip.model")
 @EnableJpaRepositories("br.com.listavip.repository")
 public class Configuracao {

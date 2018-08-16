@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.com.enviaemail.EnviaEmail.EmailService;
 import br.com.listavip.model.Convidado;
 import br.com.listavip.repository.ConvidadoRepository;
+import br.com.listavip.service.ConvidadoService;
 
 @Controller 
 public class ConvidadoControler  {
+	
 	private final static String LISTA_CONVIDADOS = "convidados";
 	
 	@Autowired
-	private ConvidadoRepository repository;
-
+	private ConvidadoService service;
+	
 	@RequestMapping("/")
 	public String index() {
 		return "index";
@@ -25,7 +27,7 @@ public class ConvidadoControler  {
 	
 	@RequestMapping("listaconvidados")
 	public String listaConvidados(Model model) {
-		Iterable<Convidado> convidados = repository.findAll();
+		Iterable<Convidado> convidados = service.obterTodos();
 		model.addAttribute( LISTA_CONVIDADOS, convidados);
 		return "listaconvidados";
 	}
@@ -36,11 +38,11 @@ public class ConvidadoControler  {
 			@RequestParam("telefone") String telefone, Model model) {
 			
 			Convidado novoConvidado = new Convidado(nome, email, telefone);
-			repository.save(novoConvidado);
+			service.salvar(novoConvidado);
 			
 			new EmailService().enviar(nome, email);
 			
-			Iterable<Convidado> convidados = repository.findAll();
+			Iterable<Convidado> convidados = service.obterTodos();
 			model.addAttribute( LISTA_CONVIDADOS, convidados);
 			
 		return "listaconvidados";

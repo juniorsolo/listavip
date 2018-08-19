@@ -6,13 +6,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-	<div class="jumbotron" style="width: 60%; margin: 1% 17%;">
+	<div class="jumbotron" style="width: 60%; margin: 1% auto; padding-top: 30px;">
 		<div class="alert alert-primary" role="alert" style="text-align: center;">
   			<span style="text-align: center;">Preencha as informações abaixo.</span>
 		</div>
 		<form th:object="${convidado}" th:action="@{/salvarCandidato}" method="POST">
 			<div class="form-group">
-				<label for="nome">Nome completo</label> 
+				<label for="nome" >Nome completo</label> 
 				<input type="text" class="form-control input-sm" th:field="*{nome}"  placeholder="Nome" />
 			</div>
 			<div class="form-group">
@@ -24,7 +24,7 @@
 				<input type="text" class="form-control input-sm" th:field="*{telefone}"  placeholder="Telefone" />
 			</div>
 			<button type="submit" class="btn btn-success">Convidar</button>
-			<a th:href="@{/listaconvidados}" class="btn btn-warning">Cancelar</a>
+			<a th:href="@{/listaconvidados}" class="btn btn-outline-secondary">Cancelar</a>
 		</form>
 	
 	</div>

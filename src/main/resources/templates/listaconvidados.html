@@ -19,20 +19,21 @@
 						<th>Nome</th>
 						<th>Email</th>
 						<th>Telefone</th>
-						
+						<th>Excluir</th>
 					</tr>
 				</thead>
 				<tr th:each="convidado : ${convidados}">
 					<td><span th:text="${convidado.nome}"></span></td>
 					<td><span th:text="${convidado.email}"></span></td>
 					<td><span th:text="${convidado.telefone}"></span></td>
-			
+					<td><a class="btn btn-outline-danger" th:href="@{/delete/{id}(id=${convidado.id})}" >Excluir</a></td>
 				</tr>
 			</table>
 		</div>
 		
 		<hr/>
-		<a class="btn btn-sm btn-success" th:href="@{/add/}" >Adicionar</a>
+		<a class="btn btn-success" th:href="@{/add/}" >Adicionar</a>
+		<a th:href="@{/}" class="btn btn-outline-secondary">Voltar</a>
 		</div>
 		
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

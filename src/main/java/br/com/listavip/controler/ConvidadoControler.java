@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.enviaemail.EnviaEmail.EmailService;
 import br.com.listavip.model.Convidado;
 import br.com.listavip.service.ConvidadoService;
 
@@ -50,7 +51,7 @@ public class ConvidadoControler  {
 		
 			service.save(convidado);
 			
-			//new EmailService().enviar(nome, email);
+			new EmailService().enviar(convidado.getNome(), convidado.getEmail());
 						
 		return this.listaConvidados();
 	}
